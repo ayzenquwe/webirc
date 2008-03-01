@@ -1,0 +1,48 @@
+<project name="Ant script with GWT macro">
+
+  <property file="build.properties"/>
+
+  <!-- Checking if gwt.home is set -->
+  <condition property="gwt.home" value="${env.GWT_HOME}">
+    <and>
+      <isset property="env.GWT_HOME"/>
+      <not>
+        <isset property="gwt.home"/>
+      </not>
+    </and>
+  </condition>
+  <fail unless="gwt.home"
+        message="GWT home directory is not specified, please use GWT_HOME environment variable or gwt.home property in build.properties."/>
+
+  <!-- Classpath with needed GWT jars -->
+  <path id="gwt.classpath">
+    <pathelement location="${gwt.home}/gwt-dev-windows.jar"/>
+    <pathelement location="${gwt.home}/gwt-user.jar"/>
+    <pathelement location="${gwt.home}/sockets.jar"/>
+  </path>
+
+  <!-- GWT macro -->
+  <macrodef name="gwt">
+    <!-- Module name -->
+    <attribute name="module"/>
+    <!-- Reference to classpath -->
+    <attribute name="classpathref"/>
+    <!-- Path to GWT compiler output directory -->
+    <attribute name="out" default="${basedir}/www"/>
+    <!-- GWT compilation style -->
+    <attribute name="style" default="DETAILED"/>
+    <!-- Logic -->
+    <sequential>
+      <!-- Running GWT compiler -->
+      <property name="project.dir" value="${basedir}/../"/>
+      <java classpathref="@{classpathref}"
+            classname="com.google.gwt.dev.GWTCompiler"
+            fork="true"
+            failonerror="true">
+        <classpath refid="gwt.classpath"/>
+        <arg line="-style @{style} -out @{out} @{module}"/>
+      </java>
+    </sequential>
+  </macrodef>
+
+</project>
