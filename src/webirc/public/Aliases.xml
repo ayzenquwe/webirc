@@ -1,0 +1,106 @@
+﻿<aliases>
+  <alias>
+    <alias>/msg</alias>
+    <alias>/message</alias>
+    <name>
+      <en>Send Message</en>
+      <ru>Посылка сообщения</ru>
+    </name>
+    <description>
+      <en>Sends a message to user or channel</en>
+      <ru>Отправка сообщения в комнату или пользователю</ru>
+    </description>
+    <usage>
+      <en>/msg Nick|#channel Some text</en>
+      <ru>/msg Ник|#комната Немного текста</ru>
+    </usage>
+    <string params="2">/PRIVMSG {0} :{1}</string>
+  </alias>
+
+  <alias>
+    <alias>/ctcp</alias>
+    <name>
+      <en>Send CTCP Message</en>
+      <ru>Посылка CTCP сообщения</ru>
+    </name>
+    <description>
+      <en>Sends a message to user with Client To Client Protocol</en>
+      <ru>Отправка сообщения пользователю по протоколу клиента к клиенту</ru>
+    </description>
+    <usage>
+      <en>/ctcp Nick Command Parameters</en>
+      <ru>/ctcp Ник Команда Параметры</ru>
+    </usage>
+   <string params="2">/msg {0} @1{1} {2}@1</string>
+  </alias>
+
+  <alias>
+    <alias>/me</alias>
+    <string params="1">/ctcp {receiver} ACTION {0}</string>
+  </alias>
+
+  <alias>
+    <alias>/slap</alias>
+    <string params="1">
+      <en>/me slaps {0}.</en>
+      <ru>/me послапал {0}.</ru>
+    </string>
+  </alias>
+
+  <alias>
+    <alias>/j</alias>
+    <string params="1">/JOIN {0} {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/p</alias>
+    <string params="0">/part {channel}</string>
+  </alias>
+
+  <alias>
+    <alias>/w</alias>
+    <string params="1">/whois {0}</string>
+  </alias>
+
+  <alias>
+    <alias>/k</alias>
+    <string params="1">/kick {channel} {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/op</alias>
+    <alias>/operator</alias>
+    <string params="1">/mode {channel} +o {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/dop</alias>
+    <alias>/deoperator</alias>
+    <string params="1">/mode {channel} -o {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/hop</alias>
+    <alias>/halfop</alias>
+    <string params="1">/mode {channel} +h {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/dhop</alias>
+    <alias>/dehalfop</alias>
+    <string params="1">/mode {channel} -h {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/v</alias>
+    <alias>/voice</alias>
+    <string params="1">/mode {channel} +v {1}</string>
+  </alias>
+
+  <alias>
+    <alias>/dv</alias>
+    <alias>/devoice</alias>
+    <string params="1">/mode {channel} -v {1}</string>
+  </alias>
+
+</aliases>

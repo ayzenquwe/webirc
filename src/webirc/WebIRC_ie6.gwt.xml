@@ -1,0 +1,5 @@
+<module>
+  <inherits name='webirc.WebIRC_no_locales'/>
+
+  <set-property name="user.agent" value="ie6"/>
+</module>                

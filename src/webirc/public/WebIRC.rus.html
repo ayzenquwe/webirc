@@ -1,0 +1,277 @@
+<!------------------------------------------------------------------------------------------------------
+
+Главный файл скина. В нём содержатся все шаблоны. По сути, файл является обычным html документом с
+некоторыми невидимыми элементами - шаблоны. Шаблон - это тэг с идентификатором. Файл делится на две
+части: статические шаблоны и динамические шаблоны. Статические шаблоны - это те, которые будут
+отображены один раз и в одном экземпляре. Динамеческие шаблоны могут быть добавлены в множестве
+экземпляров (например, закладки или диалоговые окна).
+ - Статические шаблоны: шаблон стартовой страницы, шаблон основной страницы чата.
+     1. Шаблон стартовой страницы (id = LoginPanel).
+        Данный шаблон отображается самым первым, поэтому шаблон должен быть видимым. При нём появляется
+        окно логина. Данный шаблон необязателен.
+     2. Шаблон основной страницы чата (id = RootPanel).
+        Шаблон отображается сразу после того, как пользователь ввёл свой ник в окне логина и нажал
+        кнопку "подлючиться". Изначально шаблон должен быть невидимым, то есть иметь
+        style="display: none;". Шаблон состоит из 5 основных элементов(пустой тэг с идентификатором):
+          1) Панель настроек (id = SettingsPanel) - содержит кнопки соединения, меню и т.п.
+          2) Панель сообщений (id = MessagePanel) - содержит входные и выходные сообщения чата, а
+             также панель закладок, которая находится сверху. Панель закладок можно вынести в отдельное
+             место, если определить в шаблоне элемент с идентификатором TabsPanel.
+          3) Панель контактов (id = ContactPanel) - содержит секции со списком комнат, в которых
+             находится в данный момент пользователь и список пользователей в активной комнате.
+          4) Панель действий (id = ActionPanel) - содержит кнопки захода в комнату и списка всех
+             комнат чата.
+          5) Панель ввода (id = InputPanel) - содержит поле ввода с кнопкой "Отправить", а также
+             панель с дополнительными кнопками, такими как смайлы, жирный шрифт, наклонный и т.п.
+             Панель с доп. кнопками находится сверху, её можно вынести в отдельное место, если
+             определить в шаблоне элемент с идентификатором InputSettingsPanel.
+
+ - Динамические шаблоны: шаблон диалогового окна, шаблон закладки, шаблон всплывающего окна. Все
+   динамические шаблоны должны быть помещены внутри тэга с идентификатором и быть невидимыми. В данном
+   случае для невидимости используется стиль "gwt-decorator".
+     1. Шаблон диалогового окна (id = decorator_dialog).
+        Данный шаблон используется для отображения диалогового окна. Шаблон делится на три основные
+        части: заголовок (id = decorator_dialog_header), содержание (id = decorator_dialog_body) и
+        место для кнопок (id = decorator_dialog_buttons).
+     2. Шаблон всплывающего окна (id = decorator_popup).
+        Шаблон используется для отображения всплывающих окон. Такое окно является облегченной версией
+        диалогового окна. Шаблон этого окна имеет только содержание (id = decorator_popup_content).
+     3. Шаблон закладки (id = decorator_tab).
+        Шаблон используется для отображения закладок. Шаблон делится на три части: левая часть
+        закладки(id = decorator_tab_left), середина(id = decorator_tab_content) и правая
+        (id = decorator_tab_right). Закладка может изменяться: мигать(blink), подсвечиваться(hover) и 
+        быть выделенной(selected), поэтому скрипт при изменении закладки меняет все три части шаблона.
+        Стили частей закладки: tab-left, tab-content и tab-right, соответственно левая часть, середина
+        и правая часть. Стили измененных закладок имеют такие же названия плюс -<состояние>, то есть
+        мигающая правая часть закладки имеет навзание стиля tab-right-blink.
+
+------------------------------------------------------------------------------------------------------->
+
+<html>
+<head>
+  <title>WebIRC загружается...</title>
+  <meta name='gwt:module' content='webirc.WebIRC'>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <link rel=stylesheet href="WebIRC.css">
+  <link id="icon" rel="shortcut icon" href="WebIRC.ico">
+</head>
+<body>
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+<!-------------------------------------- Статические шаблоны ------------------------------------------>
+
+<!-- Шаблон стартовой страницы. Должен быть видимым. Данный шаблон необязателен. -->
+<table id="LoginPanel" class="commonTable" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100%" height="100%" align="center" valign="middle">
+      <div class="login-image"></div>
+      <div id="Loading" class="loading">Загрузка...</div>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="bottom">
+      <div style="color: #7CADC0;">
+        WebIRC: Web client for IRC servers. &copy;reated by Ayzen. Designed by Tim.
+      </div>
+    </td>
+  </tr>
+</table>
+
+<!-- Шаблон основной страницы чата. Должен быть невидимым. -->
+<table id="RootPanel" class="commonTable" style="display: none;" cellpadding="0" cellspacing="0">
+<tr>
+<td class="bg">
+<table class="commonTable" cellpadding="0" cellspacing="0">
+<tr>
+  <td width="2%" rowspan="4"><img src="blue/spaser.gif" width="15" height="1"></td>
+  <td width="80%" height="1%" align="center" valign="top">
+    <table class="commonTable" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="20%" height="110" align="center" valign="middle">
+          <img src="blue/logo.gif" width="130" height="92">
+        </td>
+        <!-- Отдельное место для панели с закладками -->
+        <td id="TabsPanel" width="80%" align="left" valign="bottom"></td>
+      </tr>
+    </table>
+  </td>
+
+  <td width="2%" rowspan="4"><img src="blue/spaser.gif" width="15" height="1"></td>
+  <td width="15%" align="center" valign="top">
+    <table width="1" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="3" align="right"><img src="blue/spaser.gif" width="1" height="35"></td>
+      </tr>
+      <tr>
+        <!-- Панель настроек -->
+        <td id="settingsPanel" align="center"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td align="left" valign="top">
+    <table class="commonTable" cellpadding="0" cellspacing="0">
+      <tr height="5">
+        <td class="chat-left-top"></td>
+        <td class="chat-top1"></td>
+        <td class="chat-top2"></td>
+        <td class="chat-right-top"></td>
+      </tr>
+      <tr>
+        <td class="chat-left"></td>
+        <!-- Панель сообщений -->
+        <td id="MessagePanel" colspan="2" ></td>
+        <td class="chat-right">
+          <div class="chat-right-bottom-image"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="chat-left-bottom"></td>
+        <td class="chat-bottom1"></td>
+        <td align="right" valign="top" background="blue/bg/04.gif">
+          <img src="blue/bg/chat_botom.gif" width="20" height="9"></td>
+        <td class="chat-right-bottom"></td>
+      </tr>
+    </table>
+  </td>
+  <td align="left" valign="top">
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="list-left-top"></td>
+        <td class="list-top"></td>
+      </tr>
+      <tr>
+        <td class="list-menu-left">
+          <div class="list-menu-left-shadow"></div>
+        </td>
+        <td class="list-menu-center">
+          <table width="1" height="60" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <!-- Панель действий -->
+              <td id="ActionPanel"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="list-menu-left-bottom">
+          <div class="list-menu-left-bottom-shadow"></div>
+        </td>
+        <td id="ContactPanel" class="list-center">
+        </td>
+      </tr>
+      <tr>
+        <td class="list-left-bottom"></td>
+        <td class="list-bottom"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr height="25">
+  <!-- Отдельное место для панели с кнопками панели ввода -->
+  <td id="InputSettingsPanel" colspan="2"></td>
+</tr>
+<tr>
+  <td height="70" background="blue/bg_post.png">
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="10">
+      <tr>
+        <!-- Панель ввода -->
+        <td id="InputPanel" width="90%" align="left" valign="top"></td>
+      </tr>
+    </table>
+  </td>
+  <td align="left" valign="top">WebIRC: IRC client<br>
+    &copy;reated by Ayzen.<br>
+    <br>
+    Designed by Tim.
+  </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!---------------------------------------- Динамические шаблоны --------------------------------------->
+
+<!-- Шаблон диалогового окна -->
+<div id="decorator_dialog" class="gwt-decorator">
+  <table cellpadding="0" cellspacing="0">
+    <!-- Заголовок -->
+    <tr>
+      <td class="dialog-left-top"></td>
+      <!-- Содержимое заголовка -->
+      <td id="decorator_dialog_header" class="dialog-top"></td>
+      <td class="dialog-right-top"></td>
+    </tr>
+    <!-- Середина диалогового окна -->
+    <tr>
+      <td class="dialog-left" valign="top">
+        <div class="dialog-left-shadow"></div>
+      </td>
+      <td class="dialog-center-shadow">
+        <!-- Содержимое диалогового окна -->
+        <div id="decorator_dialog_body" class="dialog-content"></div>
+      </td>
+      <td class="dialog-right" valign="top">
+        <div class="dialog-right-shadow"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="dialog-left" valign="top"></td>
+      <td class="dialog-center">
+        <!-- Место для кнопок -->
+        <div id="decorator_dialog_buttons" align="center"></div>
+      </td>
+      <td class="dialog-right" valign="top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left-bottom"></td>
+      <td class="dialog-bottom"></td>
+      <td class="dialog-right-bottom"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Шаблон всплывающего окна -->
+<div id="decorator_popup" class="gwt-decorator">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="simple-dialog-left-top"></td>
+      <td class="simple-dialog-top"></td>
+      <td class="simple-dialog-right-top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left" valign="top"></td>
+      <!-- Содержимое всплывающего окна -->
+      <td id="decorator_popup_content" class="simple-dialog-center">
+      </td>
+      <td class="dialog-right" valign="top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left-bottom"></td>
+      <td class="dialog-bottom"></td>
+      <td class="dialog-right-bottom"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Шаблон закладки -->
+<div id="decorator_tab" class="gwt-decorator">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <!-- Имеет стили tab-left, tab-left-hover, tab-left-selected и tab-left-blink -->
+      <td id="decorator_tab_left">&nbsp;&nbsp;</td>
+      <!-- Имеет стили tab-content, tab-content-hover, tab-content-selected и tab-content-blink -->
+      <td id="decorator_tab_content"></td>
+      <!-- Имеет стили tab-right, tab-right-hover, tab-right-selected и tab-right-blink -->
+      <td id="decorator_tab_right">&nbsp;&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Главный скрипт -->
+<script language="javascript" src="gwt.js"></script>
+
+</body>
+</html>

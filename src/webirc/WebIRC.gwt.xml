@@ -1,0 +1,15 @@
+<module>
+
+  <inherits name='com.google.gwt.user.User'/>
+  <inherits name="com.google.gwt.i18n.I18N"/>
+  <inherits name="com.google.gwt.xml.XML"/>
+  <inherits name="com.google.gwt.http.HTTP"/>
+  <inherits name="com.google.gwt.sockets.Sockets"/>
+
+  <entry-point class='webirc.client.WebIRC'/>
+                
+  <servlet path='/SynchronizeService' class='webirc.server.SynchronizeServiceImpl'/>
+  <servlet path="/ContSynchService" class="webirc.server.ContSynchServiceImpl"/>
+
+  <extend-property name="locale" values="ru"/>
+</module>
