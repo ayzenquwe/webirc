@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebIRC Ant build script" default="build">
+
+  <import file="gwt.xml"/>
+
+  <property file="build.properties"/>
+
+  <property name="project.dir" value="${basedir}/../"/>
+
+  <property name="server.out.dir" value="${project.dir}${java.output.dir}server/"/>
+
+  <property name="exploded.full.dir" value="${project.dir}${exploded.dir}"/>
+
+  <condition property="compile.module.name"
+             value="${module.name}_${for.browser}" else="${module.name}">
+    <isset property="for.browser"/>
+  </condition>
+
+  <property name="gwt.compiled.module.dir"
+            value="${project.dir}${gwt.output.dir}${compile.module.name}/"/>
+
+  <path id="classpath">
+    <path id="client.src">
+      <dirset dir="${project.dir}" includesfile="client.files"/>
+    </path>
+    <path id="server.src">
+      <dirset dir="${project.dir}" includesfile="server.files"/>
+    </path>
+  </path>
+
+  <fileset id="server.libs" dir="${project.dir}${lib.dir}"/>
+
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+    <exclude name="**/.sbas/**"/>
+    <exclude name="**/.IJI.*/**"/>
+  </patternset>
+
+  <!-- Targets -->
+
+  <target name="build" depends="compile.java,compile.gwt,inject.build,make.exploded,make.war" description="Build the project">
+    <mkdir dir="${project.dir}${builds.dir}${build.number}/"/>
+    <copy file="${project.dir}${war.dir}${war.name}"
+          tofile="${project.dir}${builds.dir}${build.number}/${war.name}"/>
+  </target>
+
+  <target name="make" depends="compile.java,compile.gwt,make.exploded,make.war" description="Compile all classes and make WAR file"/>
+
+  <target name="compile.gwt" depends="clean.gwt" description="Compile client classes with GWT compiler">
+    <!-- Compilation -->
+    <gwt classpathref="classpath" module="${compile.module.name}" style="${gwt.style}"
+         out="${project.dir}${gwt.output.dir}"/>
+    <!-- Correction -->
+    <move file="${gwt.compiled.module.dir}${compile.module.name}.nocache.html"
+          tofile="${gwt.compiled.module.dir}${module.name}.nocache.html"
+          failonerror="false"/>
+    <delete>
+      <fileset dir="${gwt.compiled.module.dir}" includes="*.gif *.cache.xml"/>
+    </delete>
+  </target>
+
+  <target name="compile.java" depends="clean.java" description="Compile server classes">
+    <mkdir dir="${server.out.dir}"/>
+    <javac fork="true" destdir="${server.out.dir}" debug="${java.compiler.debug}"
+           nowarn="${java.compiler.generate.no.warnings}"
+           memorymaximumsize="${java.compiler.max.memory}" target="1.4">
+      <classpath>
+        <path refid="gwt.classpath"/>
+        <fileset refid="server.libs"/>
+      </classpath>
+      <src refid="server.src"/>
+      <patternset refid="ignored.files"/>
+    </javac>
+
+    <copy todir="${server.out.dir}" flatten="true" includeemptydirs="false">
+      <fileset dir="${project.dir}" includesfile="server.files">
+        <patternset excludes="**/*.java"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="make.exploded" description="Make exploded directory based on compiled files">
+    <delete dir="${exploded.full.dir}"/>
+    <mkdir dir="${exploded.full.dir}"/>
+    <!-- Copying compiled GWT files -->
+    <copy todir="${exploded.full.dir}">
+      <fileset dir="${gwt.compiled.module.dir}"/>
+    </copy>
+    <!-- Creating WEB-INF-->
+    <mkdir dir="${exploded.full.dir}WEB-INF/"/>
+    <!-- Copying specified WEB-INF files -->
+    <copy todir="${exploded.full.dir}WEB-INF/">
+      <fileset dir="${project.dir}${web-inf.dir}"/>
+    </copy>
+    <!-- Copying class files -->
+    <mkdir dir="${exploded.full.dir}WEB-INF/classes/"/>
+    <copy todir="${exploded.full.dir}WEB-INF/classes/">
+      <fileset dir="${server.out.dir}"/>
+    </copy>
+    <!-- Copying libs -->
+    <mkdir dir="${exploded.full.dir}WEB-INF/libs/"/>
+    <copy todir="${exploded.full.dir}WEB-INF/libs/">
+      <fileset refid="server.libs"/>
+    </copy>
+  </target>
+
+  <target name="make.war" description="Make WAR file based on compiled files">
+    <war webxml="${exploded.full.dir}WEB-INF/web.xml"
+         destfile="${project.dir}${war.dir}${war.name}"
+         basedir="${gwt.compiled.module.dir}">
+      <classes dir="${server.out.dir}"/>
+      <lib refid="server.libs"/>
+      <webinf dir="${project.dir}${web-inf.dir}"/>
+    </war>
+  </target>
+
+  <target name="clean.java">
+    <delete dir="${server.out.dir}"/>
+  </target>
+
+  <target name="clean.gwt">
+    <delete dir="${gwt.compiled.module.dir}"/>
+  </target>
+
+  <target name="inject.build">
+    <buildnumber/>
+    <replace dir="${gwt.compiled.module.dir}"
+             includes="*.cache.html"
+             token="@BUILD@"
+             value="${build.number}"/>
+  </target>
+
+</project>

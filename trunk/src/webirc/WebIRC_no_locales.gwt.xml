@@ -1,0 +1,5 @@
+<module>
+  <inherits name='webirc.WebIRC'/>
+
+  <set-property name="locale" value="default"/>
+</module>

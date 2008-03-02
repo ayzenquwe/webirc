@@ -1,0 +1,170 @@
+<!-- The main entry. "path" determines where smileys can be found. -->
+<smiles path="images/smileys/">
+  <smile>
+    <!-- A name of this smile. Included tags is specified for different locales -->
+    <name>
+      <!-- Name in English -->
+      <en>Smile</en>
+      <!-- Name in Russian -->
+      <ru>Улыбка</ru>
+    </name>
+    <!-- "paste" specifies what will be put in the input text area, when a user selects this smile.
+         "mask" specifies a mask which will be changed on smile image in a text. -->
+    <text paste=":-)" mask="[:=]-?[)]"/>
+    <!-- Path to smile image -->
+    <image src="smile.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Unsure</en>
+      <ru>Неуверенный</ru>
+    </name>
+    <text paste=":-." mask="[:=]-?[.]"/>
+    <image src="unsure.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Sad</en>
+      <ru>Грустный</ru>
+    </name>
+    <text paste=":-(" mask="[:=]-?[(]+"/>
+    <image src="sad.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Tongue</en>
+      <ru>С языком</ru>
+    </name>
+    <text paste=":-Р" mask="[:=]-?[bPpРрю]"/>
+    <image src="tongue.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Rolleyes</en>
+      <ru>Смешно</ru>
+    </name>
+    <text paste="X-)" mask="[XxХх]-?[)]"/>
+    <image src="sarcastic.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Biggrin</en>
+      <ru>Улыбка до ушей</ru>
+    </name>
+    <text paste=":-D" mask="[:=]-?([DBВ]|[)]{2})"/>
+    <image src="biggrin.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Laugh</en>
+      <ru>Очень смешно</ru>
+    </name>
+    <text paste="LOL" mask="([:=]-?[)][)][)]+)|([Ll][Oo][Ll])|([Лл][Оо][Лл])"/>
+    <image src="laugh.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Wink</en>
+      <ru>Подмигивающий</ru>
+    </name>
+    <text paste=";-)" mask=";-?[)]"/>
+    <image src="wink.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Wacko</en>
+      <ru>Сумасшедший</ru>
+    </name>
+    <text paste="%-(" mask="%-?[(|]"/>
+    <image src="wacko.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Very Happy</en>
+      <ru>Очень рад</ru>
+    </name>
+    <text paste="^^" mask="\x5E{2}"/>
+    <image src="i-m_so_happy.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Angel</en>
+      <ru>Ангел</ru>
+    </name>
+    <text paste="O:-)" mask="[oOоО0][:;=]-?[)]"/>
+    <image src="angel.gif"/>
+  </smile>
+  <smile>
+    <name>
+      <en>Cool</en>
+      <ru>Модный</ru>
+    </name>
+    <text paste="8-)" mask="[8BВ]-?[)]"/>
+    <image src="dirol.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Blush</en>
+      <ru>Смущенный</ru>
+    </name>
+    <text paste=";'>" mask="[;]'?-?[>\x5E]"/>
+    <image src="blush2.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Shock</en>
+      <ru>Шокированный</ru>
+    </name>
+    <text paste="o_O)" mask="(=-?[oOоО0])|([(]?[oOоО0]_?[oOоО0][)]?)"/>
+    <image src="shock.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Kiss</en>
+      <ru>Поцелуй</ru>
+    </name>
+    <text paste=":-*" mask="hkjhkjhkjhkjhkj"/>
+    <image src="kiss.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Cry</en>
+      <ru>Плачущий</ru>
+    </name>
+    <text paste=":'-(" mask=":[',]-?[(|/\\]"/>
+    <image src="cry.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Secret</en>
+      <ru>Секрет</ru>
+    </name>
+    <text paste=":-X" mask="[=:]-?[XxХх#]"/>
+    <image src="secret.gif"/>
+  </smile>
+
+  <smile>
+    <name>
+      <en>Aggressive</en>
+      <ru>Агрессивный</ru>
+    </name>
+    <text paste=">:-O" mask="(>:-?[OoОо0])|(:-?@)"/>
+    <image src="aggressive.gif"/>
+  </smile>
+
+</smiles>

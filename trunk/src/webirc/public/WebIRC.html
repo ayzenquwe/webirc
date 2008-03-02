@@ -1,0 +1,205 @@
+<html>
+<head>
+  <title>WebIRC is loading...</title>
+  <meta name='gwt:module' content='webirc.WebIRC'>
+  <link rel=stylesheet href="WebIRC.css">
+  <link id="icon" rel="shortcut icon" href="WebIRC.ico">
+</head>
+<body>
+<iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+<table id="LoginPanel" class="commonTable" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100%" height="100%" align="center" valign="middle">
+      <div class="login-image"></div>
+      <div id="Loading" class="loading">Loading...</div>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="bottom">
+      <div style="color: #7CADC0;">
+        WebIRC: Web client for IRC servers. &copy;reated by Ayzen. Designed by Tim.
+      </div>
+    </td>
+  </tr>
+</table>
+
+<table id="RootPanel" class="commonTable" style="display: none;" cellpadding="0" cellspacing="0">
+<tr>
+<td class="bg">
+<table class="commonTable" cellpadding="0" cellspacing="0">
+<tr>
+  <td width="2%" rowspan="4"><img src="blue/spaser.gif" width="15" height="1"></td>
+  <td width="80%" height="1%" align="center" valign="top">
+    <table class="commonTable" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="20%" height="110" align="center" valign="middle">
+          <img src="blue/logo.gif" width="130" height="92">
+        </td>
+        <td id="TabsPanel" width="80%" align="left" valign="bottom">
+        </td>
+      </tr>
+    </table>
+  </td>
+
+  <td width="2%" rowspan="4"><img src="blue/spaser.gif" width="15" height="1"></td>
+  <td width="15%" align="center" valign="top">
+    <table width="1" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="3" align="right"><img src="blue/spaser.gif" width="1" height="35"></td>
+      </tr>
+      <tr>
+        <td id="settingsPanel" align="center"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td align="left" valign="top">
+    <table class="commonTable" cellpadding="0" cellspacing="0">
+      <tr height="5">
+        <td class="chat-left-top"></td>
+        <td class="chat-top1"></td>
+        <td class="chat-top2"></td>
+        <td class="chat-right-top"></td>
+      </tr>
+      <tr>
+        <td class="chat-left"></td>
+        <td id="MessagePanel" colspan="2" ></td>
+        <td class="chat-right">
+          <div class="chat-right-bottom-image"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="chat-left-bottom"></td>
+        <td class="chat-bottom1"></td>
+        <td align="right" valign="top" background="blue/bg/04.gif">
+          <img src="blue/bg/chat_botom.gif" width="20" height="9"></td>
+        <td class="chat-right-bottom"></td>
+      </tr>
+    </table>
+  </td>
+  <td align="left" valign="top">
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="list-left-top"></td>
+        <td class="list-top"></td>
+      </tr>
+      <tr>
+        <td class="list-menu-left">
+          <div class="list-menu-left-shadow"></div>
+        </td>
+        <td class="list-menu-center">
+          <table width="1" height="60" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td id="ActionPanel"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="list-menu-left-bottom">
+          <div class="list-menu-left-bottom-shadow"></div>
+        </td>
+        <td id="ContactPanel" class="list-center">
+        </td>
+      </tr>
+      <tr>
+        <td class="list-left-bottom"></td>
+        <td class="list-bottom"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr height="25">
+  <td id="InputSettingsPanel" colspan="2"></td>
+</tr>
+<tr>
+  <td height="70" background="blue/bg_post.png">
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="10">
+      <tr>
+        <td id="InputPanel" width="90%" align="left" valign="top"></td>
+      </tr>
+    </table>
+  </td>
+  <td align="left" valign="top">WebIRC: IRC client<br>
+    &copy;reated by Ayzen.<br>
+    <br>
+    Designed by Tim.
+  </td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!--------------------------------------------- Templates ----------------------------------------------------->
+
+<div id="decorator_dialog" class="gwt-decorator">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="dialog-left-top"></td>
+      <td id="decorator_dialog_header" class="dialog-top"></td>
+      <td class="dialog-right-top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left" valign="top">
+        <div class="dialog-left-shadow"></div>
+      </td>
+      <td class="dialog-center-shadow">
+        <div id="decorator_dialog_body" class="dialog-content"></div>
+      </td>
+      <td class="dialog-right" valign="top">
+        <div class="dialog-right-shadow"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="dialog-left" valign="top"></td>
+      <td class="dialog-center">
+        <div id="decorator_dialog_buttons" align="center"></div>
+      </td>
+      <td class="dialog-right" valign="top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left-bottom"></td>
+      <td class="dialog-bottom"></td>
+      <td class="dialog-right-bottom"></td>
+    </tr>
+  </table>
+</div>
+
+<div id="decorator_popup" class="gwt-decorator">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="simple-dialog-left-top"></td>
+      <td class="simple-dialog-top"></td>
+      <td class="simple-dialog-right-top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left" valign="top"></td>
+      <td id="decorator_popup_content" class="simple-dialog-center">
+      </td>
+      <td class="dialog-right" valign="top"></td>
+    </tr>
+    <tr>
+      <td class="dialog-left-bottom"></td>
+      <td class="dialog-bottom"></td>
+      <td class="dialog-right-bottom"></td>
+    </tr>
+  </table>
+</div>
+
+<div id="decorator_tab" class="gwt-decorator">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td id="decorator_tab_left">&nbsp;&nbsp;</td>
+      <td id="decorator_tab_content"></td>
+      <td id="decorator_tab_right">&nbsp;&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+<script language="javascript" src="gwt.js"></script>
+
+</body>
+</html>

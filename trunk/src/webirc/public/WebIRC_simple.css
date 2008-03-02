@@ -1,0 +1,489 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  margin: 8px;
+  margin-top: 3px;
+}
+
+.gwt-decorator {
+  display: none;
+}
+
+.gwt-TextBox {
+  background-color: white;   
+  border: 1px solid dodgerblue;
+}
+
+.gwt-Button {
+  background-color: lightskyblue;
+  border: 1px solid dodgerblue;
+}
+
+.gwt-DialogBox {
+  vertical-align: middle;
+  background-color: #e4f1fc;
+  border: 2px solid dodgerblue;
+  padding-bottom: 5px;
+}
+
+.gwt-DialogBox-Caption {
+  background: url('images/DialogHeader.gif') repeat-x 30px;
+  font-weight: bold;
+  border: 1px solid blue;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  cursor: default;
+}
+
+.gwt-DialogBox-Content {
+  padding: 10px;
+}
+
+.gwt-ChannelsPanel-Header {
+  background-color: dodgerblue;
+  cursor: default;
+}
+
+.gwt-ChannelsPanel-Header-Label {
+  background: #fde69a url('images/SectionHeader.gif') repeat-x 26px;
+  font-size: 18px;
+  padding-top: 4px;
+}
+
+.gwt-ChannelsPanel-Content {
+  background-color: white;
+  border: 1px solid dodgerblue;
+  font-size: 16px;
+  cursor: default;
+}
+
+.gwt-MessageBox-Image {
+  margin-left: 7px;
+  margin-top: 7px;
+}
+
+.gwt-MessagePanel-Timestamp-Container {
+  background: url('images/time_line.gif');
+  width: 65px;
+  font-size: 13px;
+}
+
+.gwt-MessagePanel-Line-Container {
+  font-size: 13px;
+}
+
+.gwt-ChannelsPanel-Selected-Row {
+  background-color: #3399ff;
+}
+
+.messageAuthor {
+  font-weight: bold;
+}
+
+.usersMessage {
+  color: #009999;
+}
+  /*-*** Buttons ***-*/
+
+.gwt-ImageButton-Text {
+  padding-left: 3px;
+  cursor: default;
+}
+
+.gwt-CloseButton {
+  background: url('images/close.png') no-repeat center;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  vertical-align: middle;   
+}
+
+.gwt-CloseButton-mouseOver {
+  background: url('images/close1.png') no-repeat center;
+}
+
+.gwt-CloseButton-pushed {
+  background: url('images/close2.png') no-repeat center;      
+}
+
+.gwt-EnterButton {
+  background: url('images/enter.gif') no-repeat center;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  vertical-align: middle;
+}
+
+.gwt-EnterButton-mouseOver {
+  background: url('images/enter_over.gif') no-repeat center;
+}
+
+.gwt-EnterButton-pushed {
+  background: url('images/enter_down.gif') no-repeat center;
+}
+
+.gwt-ListButton {
+  background: url('images/list.gif') no-repeat center;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  vertical-align: middle;
+}
+
+.gwt-ListButton-mouseOver {
+  background: url('images/list_over.gif') no-repeat center;
+}
+
+.gwt-ListButton-pushed {
+  background: url('images/list_down.gif') no-repeat center;
+}
+
+.gwt-TabbedBar-first {
+  border-bottom: 1px solid dodgerblue;
+}
+
+.gwt-TabbedBar-rest {
+  border-bottom: 1px solid dodgerblue;
+}
+
+.messageAuthorConnectReply {
+  color: #0000AA;
+}
+
+.messageAuthorUnknownReply {
+  color: #AA0000;
+}
+
+.messageAuthorUnknownCommand {
+  color: #AA0000;
+}
+
+.messageAuthorNotice {
+  color: #ccaf2d;
+}
+
+.mesage-Event {
+  font-weight: bold;
+}
+
+.messageMode {
+  color: #9435ac;
+  font-weight: bold;
+}
+
+.messageMode-Ban {
+  color: #cb4545;
+  font-weight: bold;
+}
+
+.messageMode-Unban {
+  color: #4666c2;
+  font-weight: bold;
+}
+
+.messageMode-addUserType {
+  color: #8ca32f;
+  font-weight: bold;
+}
+
+.messageMode-removeUserType {
+  color: #796118;
+  font-weight: bold;
+}
+
+.message-User-Enter {
+  color: #3bbd22;
+  font-weight: bold;
+}
+
+.message-User-Exit {
+  color: #777676;
+  font-weight: bold;
+}
+
+.message-User-Kick {
+  color: #cb4545;
+  font-weight: bold;
+}
+
+.message-Event {
+  color: #b08701;
+  font-weight: bold;
+}
+
+.message-CTCP {
+  color: #b08701;
+  font-weight: bold;
+}
+
+.gwt-TabPanelBottomContainer {
+  padding: 3px;
+  background-color: #e4f1fc;
+  border-left: 2px solid dodgerblue;
+  border-top: 0 solid dodgerblue;
+  border-right: 2px solid dodgerblue;
+  border-bottom: 2px solid dodgerblue;
+}
+
+.gwt-TabPanelBottom {
+  background-color: white;
+  border-left: 1px solid dodgerblue;
+  border-top: 0 solid dodgerblue;
+  border-right: 1px solid dodgerblue;
+  border-bottom: 1px solid dodgerblue;
+}
+
+.ErrorMessage {
+  background-color: #ffb0b0;
+  font-size: smaller;
+  border: 1px solid red;
+  padding: 2px;
+}
+
+.gwt-SectionPanel {
+  border: 1px solid dodgerblue;
+  background-color: #e4f1fc;
+}
+
+.gwt-SectionPanel-MainPanel {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.gwt-Section {
+  background-color: white;
+  width: 93%;
+  border: 1px solid dodgerblue;
+}
+
+.gwt-Section-Header {
+  background: url('images/SectionHeader.gif') repeat-x 26px;
+  background-color: #fde69a;
+  font-size: 18px;
+  padding-top: 4px;
+  cursor: default;
+}
+
+.gwt-Section-Pinned {
+  border-bottom: 1px solid dodgerblue;
+  background-color: #fde69a;
+}
+
+.gwt-Divider {
+  background: url('images/divider.gif') repeat-x 14px;
+  height: 14px;
+  cursor: n-resize;
+}
+
+.gwt-Line {
+  cursor: default;
+}
+
+.gwt-Line-mouseOver {
+  background-color: powderblue;
+}
+
+.gwt-Line-pushed {
+  background-color: #e4f1fc;
+}
+
+.gwt-Line-Content {
+  font-size: 16px;
+}
+
+.gwt-Icon {
+  width: 20px;
+  height: 16px;
+}
+
+.gwt-Icon-ChannelOwner {
+  background: url('images/icon_chanowner.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Admin {
+  background: url('images/icon_admin.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Operator {
+  background: url('images/icon_operator.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-HalfOperator {
+  background: url('images/icon_halfop.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Voice {
+  background: url('images/icon_voice.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Channel {
+  background: url('images/icon_channel.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Info {
+  background: url('images/icon_info.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Error {
+  background: url('images/icon_error.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Unknown {
+  background: url('images/icon_unknown.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-System {
+  background: url('images/icon_system.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Notice {
+  background: url('images/icon_notice.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Ban {
+  background: url('images/icon_ban.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Unban {
+  background: url('images/icon_ban.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-User-Enter {
+  background: url('images/icon_user_enter.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-User-Exit {
+  background: url('images/icon_user_exit.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-Icon-Kick {
+  background: url('images/icon_kick.gif') no-repeat center;
+  width: 20px;
+  height: 16px;
+  cursor: help;
+}
+
+.gwt-InputPopup {
+  background-color: #e4f1fc;
+  border: 1px solid dodgerblue;
+  padding: 3px;
+}
+
+.gwt-InputPopup-Button {
+  margin-left: 3px;
+  background-color: lightskyblue;
+  border: 1px solid dodgerblue;
+}
+
+.gwt-SmileButton {
+  background: url('images/smile.gif') no-repeat center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid white;
+  vertical-align: middle;
+}
+
+.gwt-SmileButton-mouseOver {
+  background-color: lightskyblue;
+  border: 1px solid dodgerblue;
+}
+
+.gwt-SmileButton-pushed {
+  background-color: dodgerblue;
+  border: 1px solid dodgerblue;
+}
+
+/* Tab styles */
+.tab-left {
+  display: none;
+}
+
+.tab-right {
+  display: none;
+}
+
+.tab-content {
+  background: url('images/tab.gif') repeat-x 26px;
+  height: 24px;
+  border: 1px solid dodgerblue;
+  padding: 2px;
+  cursor: default;
+}
+
+.tab-content-selected {
+  padding: 2px 2px 0 2px;
+  border-left: 1px solid dodgerblue;
+  border-top: 1px solid dodgerblue;
+  border-right: 1px solid dodgerblue;
+  border-bottom: 0 solid dodgerblue;
+  background: url('images/tab_selected.gif') repeat-x 26px;
+  height: 24px;
+  cursor: default;
+}
+
+.tab-content-hover {
+  border-color: blue;
+  background: url('images/tab_over.gif') repeat-x 26px;
+}
+
+.tab-content-blink {
+  background: url('images/tab_msg.gif') repeat-x 26px;
+}
+
+.tab-title {
+  font-size: 17px;
+}
+
+.tab-title-changed {
+  color: #0099ff;
+  font-style: italic;
+}

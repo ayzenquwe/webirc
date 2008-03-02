@@ -1,0 +1,7 @@
+To build WebIRC use ant script in "ant" folder. WebIRC uses 
+modified gwt-user.jar library, which you can download from:
+http://webirc.googlecode.com/files/gwt-user.jar
+Also it uses sockets library:
+http://webirc.googlecode.com/files/Sockets.jar
+These libraries should be located in GWT home folder (see
+gwt.home parameter in the file ant/build.properties)

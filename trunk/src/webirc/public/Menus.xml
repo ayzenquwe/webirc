@@ -1,0 +1,141 @@
+<menus>
+  <item name="channel">
+    <item icon="gwt-Icon-Info">
+      <name>
+        <en>Show the topic</en>
+        <ru>Тема комнаты</ru>
+      </name>
+      <send>/topic {channel}</send>
+    </item>
+    <item icon="gwt-Icon-Kick">
+      <name>
+        <en>Exit channel</en>
+        <ru>Покинуть канал</ru>
+      </name>
+      <send>/part {channel}</send>
+    </item>
+  </item>
+
+  <item name="user">
+    <item icon="gwt-Icon-Info">
+      <name>
+        <en>Information</en>
+        <ru>Информация</ru>
+      </name>
+      <send>/whois {user}</send>
+    </item>
+    <item icon="gwt-Icon-System">
+      <name>
+        <en>Administration</en>
+        <ru>Управление</ru>
+      </name>
+      <item icon="gwt-Icon-Kick">
+        <name>
+          <en>Kick</en>
+          <ru>Выкинуть</ru>
+        </name>
+        <send>/kick {channel} {user}</send>
+      </item>
+      <item icon="gwt-Icon-ChannelOwner">
+        <name>
+          <en>Channel Owner</en>
+          <ru>Владелец комнаты</ru>
+        </name>
+        <item>
+          <name>
+            <en>Give</en>
+            <ru>Дать</ru>
+          </name>
+          <send>/mode {channel} +q {user}</send>
+        </item>
+        <item>
+          <name>
+            <en>Take</en>
+            <ru>Забрать</ru>
+          </name>
+          <send>/mode {channel} -q {user}</send>
+        </item>
+      </item>
+      <item icon="gwt-Icon-Admin">
+        <name>
+          <en>Administrator</en>
+          <ru>Администратор</ru>
+        </name>
+        <item>
+          <name>
+            <en>Give</en>
+            <ru>Дать</ru>
+          </name>
+          <send>/mode {channel} +a {user}</send>
+        </item>
+        <item>
+          <name>
+            <en>Take</en>
+            <ru>Забрать</ru>
+          </name>
+          <send>/mode {channel} -a {user}</send>
+        </item>
+      </item>
+      <item icon="gwt-Icon-Operator">
+        <name>
+          <en>Operator</en>
+          <ru>Оператор</ru>
+        </name>
+        <item>
+          <name>
+            <en>Give</en>
+            <ru>Дать</ru>
+          </name>
+          <send>/mode {channel} +o {user}</send>
+        </item>
+        <item>
+          <name>
+            <en>Take</en>
+            <ru>Забрать</ru>
+          </name>
+          <send>/mode {channel} -o {user}</send>
+        </item>
+      </item>
+      <item icon="gwt-Icon-HalfOperator">
+        <name>
+          <en>Half-operator</en>
+          <ru>Полу-оператор</ru>
+        </name>
+        <item>
+          <name>
+            <en>Give</en>
+            <ru>Дать</ru>
+          </name>
+          <send>/mode {channel} +h {user}</send>
+        </item>
+        <item>
+          <name>
+            <en>Take</en>
+            <ru>Забрать</ru>
+          </name>
+          <send>/mode {channel} -h {user}</send>
+        </item>
+      </item>
+      <item icon="gwt-Icon-Voice">
+        <name>
+          <en>Voice</en>
+          <ru>Воис</ru>
+        </name>
+        <item>
+          <name>
+            <en>Give</en>
+            <ru>Дать</ru>
+          </name>
+          <send>/mode {channel} +v {user}</send>
+        </item>
+        <item>
+          <name>
+            <en>Take</en>
+            <ru>Забрать</ru>
+          </name>
+          <send>/mode {channel} -v {user}</send>
+        </item>
+      </item>
+    </item>
+  </item>
+</menus>
